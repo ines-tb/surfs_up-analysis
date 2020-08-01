@@ -11,8 +11,8 @@ from flask import Flask, jsonify
 
 # Setup Database
 engine = create_engine("sqlite:///hawaii.sqlite")
+
 Base = automap_base()
-Base.prepare()
 Base.prepare(engine, reflect=True)
 # Tables references
 Measurement = Base.classes.measurement
@@ -25,14 +25,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def welcome():
-    return (
+    return(
     '''
-    Welcome to the Climate Analysis API!    
-    Available Routes:
-    /api/v1.0/precipitation
-    /api/v1.0/stations
-    /api/v1.0/tobs
-    /api/v1.0/temp/start/end
+    Welcome to the Climate Analysis API!</br>
+    Available Routes:</br>
+    /api/v1.0/precipitation</br>
+    /api/v1.0/stations</br>
+    /api/v1.0/tobs</br>
+    /api/v1.0/temp/start/end</br>
     ''')
 
     
